@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Magnitudes · Guía Interactiva</title>
+<link rel="icon" href="imgs/logoImg.png" type="image/png">
+<script>
+  (function () {
+    var saved = localStorage.getItem("fisica_theme");
+    if (saved) document.documentElement.setAttribute("data-theme", saved);
+  })();
+</script>
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/tema-magnitudes.css">
+</head>
+<body data-topic="magnitudes">
+
+<header class="site-header">
+  <a class="site-header__brand" href="index.html">
+    <span class="site-header__mark"><img src="imgs/logo.gif" alt="Logo" class="site-header__mark-img"></span>
+    <span class="site-header__title">Física <span>· ADSO</span></span>
+  </a>
+  <svg class="wave-divider" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,12 q10,-10 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0"/></svg>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</header>
+
+<div class="scale-zoom" aria-hidden="true">
+  <div class="scale-zoom__display">
+    <strong data-scale-label>Átomo</strong>
+    <span class="mono" data-scale-value>10⁻¹⁰ m</span>
+  </div>
+  <div class="scale-zoom__ruler" data-scale-ruler>
+    <span class="scale-zoom__line"></span>
+    <span class="scale-zoom__tick" style="top:0%"></span>
+    <span class="scale-zoom__tick" style="top:16.66%"></span>
+    <span class="scale-zoom__tick" style="top:33.33%"></span>
+    <span class="scale-zoom__tick" style="top:50%"></span>
+    <span class="scale-zoom__tick" style="top:66.66%"></span>
+    <span class="scale-zoom__tick" style="top:83.33%"></span>
+    <span class="scale-zoom__tick" style="top:100%"></span>
+    <div class="scale-zoom__marker" data-scale-marker style="top:0%"></div>
+  </div>
+  <span class="scale-zoom__hint">Arrastra</span>
+</div>
+
+<main class="page">
+
+  <nav class="breadcrumb">
+    <a href="index.html">Módulo de Física</a>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    <strong>Magnitudes</strong>
+  </nav>
+
+  <section class="topic-hero">
+    <div class="topic-hero__top">
+      <span class="topic-card__level">Introductorio</span>
+      <span class="badge">40 min</span>
+    </div>
+    <div class="topic-hero__head">
+      <h1>Magnitudes</h1>
+      <span class="topic-hero__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8v3M11 8v3M15 8v3"/></svg>
+      </span>
+    </div>
+    <p style="max-width:640px">El lenguaje común de la física: unidades, conversiones y notación científica para medir con precisión.</p>
+  </section>
+
+  <div class="topic-layout">
+    <div>
+
+      <div class="learn-box">
+        <h4>Lo que aprenderás</h4>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Reconocer las unidades del Sistema Internacional</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Convertir correctamente entre unidades</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Expresar cifras con la precisión adecuada</li>
+        </ul>
+      </div>
+
+      <div class="section-block" id="sistema-internacional">
+        <div class="section-block__head">
+          <span class="section-block__num mono">01</span>
+          <h2>Sistema Internacional</h2>
+        </div>
+        <div class="section-block__body">
+          <p>El Sistema Internacional de Unidades (SI) define 7 unidades base — como el metro, el kilogramo y el segundo — a partir de las cuales se derivan todas las demás.</p>
+          <div class="callout">
+            <span class="mono">m, kg, s, A, K, mol, cd</span>
+            <small>Las 7 unidades base del Sistema Internacional.</small>
+          </div>
+          <p>Usar un sistema común permite que cualquier medición sea comparable en cualquier parte del mundo.</p>
+        </div>
+      </div>
+
+      <div class="section-block" id="conversion">
+        <div class="section-block__head">
+          <span class="section-block__num mono">02</span>
+          <h2>Conversión de unidades</h2>
+        </div>
+        <div class="section-block__body">
+          <p>Convertir unidades es multiplicar por un factor que no cambia la cantidad física, solo la forma en que se expresa.</p>
+          <div class="callout">
+            <span class="mono">1 km = 1000 m</span>
+            <small>Ejemplo de factor de conversión entre unidades de longitud.</small>
+          </div>
+          <p>Dominar las conversiones evita errores comunes, como los que han costado misiones espaciales completas.</p>
+        </div>
+      </div>
+
+      <div class="section-block" id="cifras">
+        <div class="section-block__head">
+          <span class="section-block__num mono">03</span>
+          <h2>Cifras significativas</h2>
+        </div>
+        <div class="section-block__body">
+          <p>Las cifras significativas indican qué tan precisa es una medición y deben respetarse al hacer cálculos.</p>
+          <div class="callout">
+            <span class="mono">0.00450 → 3 cifras</span>
+            <small>Los ceros a la izquierda no cuentan; los del medio y algunos finales sí.</small>
+          </div>
+          <p>Reportar una medición con más cifras de las que realmente se midieron es un error común que hay que evitar.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="toc">
+      <img src="imgs/si-sistema-internacional-unidades.png" alt="Sistema Internacional de Unidades" class="toc-sticker">
+      <div class="toc-fact">
+        <strong>¿Sabías qué?</strong>
+        <p>El Sistema Internacional de Unidades define solo 7 unidades base — como el metro y el kilogramo — a partir de las cuales se puede expresar cualquier magnitud física del universo.</p>
+      </div>
+      <div class="toc-progress">
+        <div class="progress-label"><span>Progreso del tema</span><strong data-progress-label="self">0%</strong></div>
+        <div class="progress"><div class="progress__bar" data-progress-bar="self"></div></div>
+      </div>
+      <div class="toc-label">EN ESTE TEMA</div>
+      <a href="#sistema-internacional">Sistema Internacional</a>
+      <a href="#conversion">Conversión de unidades</a>
+      <a href="#cifras">Cifras significativas</a>
+
+      <a class="btn btn--ghost toc__next" href="index.html#avance">
+        Ver tu avance
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-footer">Aprendizaje Interactivo de Física © 2026 · Creado con amor para compartir el conocimiento y facilitar tu aprendizaje.</footer>
+
+<script src="app.js"></script>
+<script>
+  initSectionProgress();
+  initToc();
+  initStudyTimer();
+  initScaleZoom();
+  initThemeToggle();
+</script>
+</body>
+</html>

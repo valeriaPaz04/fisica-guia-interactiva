@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mecánica · Guía Interactiva</title>
+<link rel="icon" href="imgs/logoImg.png" type="image/png">
+<script>
+  (function () {
+    var saved = localStorage.getItem("fisica_theme");
+    if (saved) document.documentElement.setAttribute("data-theme", saved);
+  })();
+</script>
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/tema-mecanica.css">
+</head>
+<body data-topic="mecanica">
+
+<header class="site-header">
+  <a class="site-header__brand" href="index.html">
+    <span class="site-header__mark"><img src="imgs/logo.gif" alt="Logo" class="site-header__mark-img"></span>
+    <span class="site-header__title">Física <span>· ADSO</span></span>
+  </a>
+  <svg class="wave-divider" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,12 q10,-10 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0"/></svg>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</header>
+
+<div class="pulley" aria-hidden="true">
+  <div class="pulley__wheel"><span class="pulley__wheel-hub"></span></div>
+  <div class="pulley__tracks">
+    <div class="pulley__track" data-pulley-track-weight>
+      <span class="pulley__rope" data-pulley-rope-weight></span>
+      <div class="pulley__weight" data-pulley-weight>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 12h16"/></svg>
+      </div>
+    </div>
+    <div class="pulley__track" data-pulley-track-handle>
+      <span class="pulley__rope" data-pulley-rope-handle></span>
+      <div class="pulley__handle" data-pulley-handle>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 5v3M12 16v3M5 12h3M16 12h3"/></svg>
+      </div>
+    </div>
+  </div>
+  <span class="pulley__hint">Jala</span>
+</div>
+
+<main class="page">
+
+  <nav class="breadcrumb">
+    <a href="index.html">Módulo de Física</a>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    <strong>Mecánica</strong>
+  </nav>
+
+  <section class="topic-hero">
+    <div class="topic-hero__top">
+      <span class="topic-card__level">Introductorio</span>
+      <span class="badge">45 min</span>
+    </div>
+    <div class="topic-hero__head">
+      <h1>Mecánica</h1>
+      <span class="topic-hero__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c4-11 14-11 18 0"/><circle cx="12" cy="7.5" r="1.4" fill="currentColor" stroke="none"/></svg>
+      </span>
+    </div>
+    <p style="max-width:640px">Movimiento, fuerzas y las leyes que describen cómo se desplazan los cuerpos — de la cinemática básica al tiro parabólico.</p>
+  </section>
+
+  <div class="topic-layout">
+    <div>
+
+      <div class="learn-box">
+        <h4>Lo que aprenderás</h4>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Describir la posición y velocidad de un cuerpo en movimiento</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Aplicar las leyes de Newton a casos simples</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Calcular alcance, altura máxima y tiempo de vuelo de un proyectil</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Experimentar con el simulador de tiro parabólico</li>
+        </ul>
+      </div>
+
+      <div class="section-block" id="cinematica">
+        <div class="section-block__head">
+          <span class="section-block__num mono">01</span>
+          <h2>Cinemática básica</h2>
+        </div>
+        <div class="section-block__body">
+          <p>La cinemática describe el movimiento de un cuerpo sin ocuparse de qué lo causa. Las tres cantidades base son posición, velocidad y aceleración, y se relacionan entre sí a través del tiempo.</p>
+          <div class="callout">
+            <span class="mono">v = d / t</span>
+            <small>Velocidad media: distancia recorrida sobre el tiempo empleado.</small>
+          </div>
+          <p>Cuando la velocidad cambia de forma constante, esa razón de cambio es la aceleración — la base para entender por qué un objeto lanzado al aire no sigue una línea recta.</p>
+        </div>
+      </div>
+
+      <div class="section-block" id="newton">
+        <div class="section-block__head">
+          <span class="section-block__num mono">02</span>
+          <h2>Leyes de Newton</h2>
+        </div>
+        <div class="section-block__body">
+          <p>Las tres leyes de Newton explican cómo las fuerzas modifican el movimiento: un cuerpo mantiene su estado a menos que una fuerza actúe sobre él, y esa fuerza es proporcional a la masa y a la aceleración que produce.</p>
+          <div class="callout">
+            <span class="mono">F = m · a</span>
+            <small>Segunda ley: la fuerza neta es igual a la masa por la aceleración.</small>
+          </div>
+          <p>En el tiro parabólico, la única fuerza relevante una vez lanzado el proyectil es la gravedad, que actúa siempre hacia abajo con una aceleración constante de 9.8 m/s².</p>
+        </div>
+      </div>
+
+      <div class="section-block" id="simulador">
+        <div class="section-block__head">
+          <span class="section-block__num mono">03</span>
+          <h2>Simulador: tiro parabólico</h2>
+        </div>
+
+        <div class="simulator">
+          <div class="simulator__eyebrow">Simulador</div>
+          <h3>Laboratorio de tiro parabólico</h3>
+          <p>Ajusta la velocidad inicial y el ángulo de lanzamiento para ver cómo cambia la trayectoria.</p>
+
+          <div class="simulator__grid">
+            <div>
+              <div class="field">
+                <div class="field-label"><span>Velocidad inicial</span><strong id="sim-v0-value">30 m/s</strong></div>
+                <input type="range" id="sim-v0" min="5" max="60" value="30" step="1">
+              </div>
+              <div class="field">
+                <div class="field-label"><span>Ángulo de lanzamiento</span><strong id="sim-angle-value">45°</strong></div>
+                <input type="range" id="sim-angle" min="5" max="85" value="45" step="1">
+              </div>
+
+              <div class="stat-row">
+                <div class="stat"><span>Alcance</span><strong id="stat-alcance">–</strong></div>
+                <div class="stat"><span>Altura máx.</span><strong id="stat-altura">–</strong></div>
+                <div class="stat"><span>Tiempo de vuelo</span><strong id="stat-tiempo">–</strong></div>
+              </div>
+            </div>
+
+            <div class="canvas-wrap">
+              <canvas id="sim-canvas" height="260"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="toc">
+      <img src="imgs/sir-isaac-newton.png" alt="Isaac Newton" class="toc-sticker">
+      <div class="toc-fact">
+        <strong>¿Sabías qué?</strong>
+        <p>La leyenda cuenta que una manzana al caer inspiró a Newton a formular la ley de la gravitación universal, la misma que hoy explica por qué los cuerpos caen con aceleración constante.</p>
+      </div>
+      <div class="toc-progress">
+        <div class="progress-label"><span>Progreso del tema</span><strong data-progress-label="self">0%</strong></div>
+        <div class="progress"><div class="progress__bar" data-progress-bar="self"></div></div>
+      </div>
+      <div class="toc-label">EN ESTE TEMA</div>
+      <a href="#cinematica">Cinemática básica</a>
+      <a href="#newton">Leyes de Newton</a>
+      <a href="#simulador">Simulador</a>
+
+      <a class="btn btn--ghost toc__next" href="tema-energia.html">
+        Siguiente: Energía
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-footer">Guía Interactiva de Física © 2026 · Creado con amor para compartir el conocimiento y facilitar tu aprendizaje.</footer>
+
+<script src="app.js"></script>
+<script>
+  initSectionProgress();
+  initToc();
+  initProjectileSimulator();
+  initStudyTimer();
+  initPulley();
+  initThemeToggle();
+</script>
+</body>
+</html>

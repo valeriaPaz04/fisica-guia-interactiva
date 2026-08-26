@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ondas · Guía Interactiva</title>
+<link rel="icon" href="imgs/logoImg.png" type="image/png">
+<script>
+  (function () {
+    var saved = localStorage.getItem("fisica_theme");
+    if (saved) document.documentElement.setAttribute("data-theme", saved);
+  })();
+</script>
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/tema-ondas.css">
+</head>
+<body data-topic="ondas">
+
+<header class="site-header">
+  <a class="site-header__brand" href="index.html">
+    <span class="site-header__mark"><img src="imgs/logo.gif" alt="Logo" class="site-header__mark-img"></span>
+    <span class="site-header__title">Física <span>· ADSO</span></span>
+  </a>
+  <svg class="wave-divider" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,12 q10,-10 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0"/></svg>
+  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</header>
+
+<div class="wave-gen" aria-hidden="true">
+  <button class="wave-gen__speaker" type="button" data-wave-piston aria-label="Encender o apagar el generador de ondas">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 9v6h4l5 5V4L8 9H4z"/></svg>
+  </button>
+  <div class="wave-gen__rings" data-wave-rings>
+    <span class="wave-gen__ring" style="--i:0"></span>
+    <span class="wave-gen__ring" style="--i:1"></span>
+    <span class="wave-gen__ring" style="--i:2"></span>
+    <span class="wave-gen__ring" style="--i:3"></span>
+    <span class="wave-gen__ring" style="--i:4"></span>
+    <span class="wave-gen__ring" style="--i:5"></span>
+  </div>
+  <span class="wave-gen__hint" data-wave-hint>Enciende</span>
+</div>
+
+<main class="page">
+
+  <nav class="breadcrumb">
+    <a href="index.html">Módulo de Física</a>
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    <strong>Ondas</strong>
+  </nav>
+
+  <section class="topic-hero">
+    <div class="topic-hero__top">
+      <span class="topic-card__level">Introductorio</span>
+      <span class="badge">35 min</span>
+    </div>
+    <div class="topic-hero__head">
+      <h1>Ondas</h1>
+      <span class="topic-hero__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-5 5-5 5 0s2.5 5 5 0 5-5 5 0 2.5 5 5 0"/></svg>
+      </span>
+    </div>
+    <p style="max-width:640px">Qué es una onda, cómo se propaga y qué la diferencia del sonido y la luz — la base física detrás de casi todo lo que oímos y vemos.</p>
+  </section>
+
+  <div class="topic-layout">
+    <div>
+
+      <div class="learn-box">
+        <h4>Lo que aprenderás</h4>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Identificar los elementos de una onda</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Distinguir ondas mecánicas de electromagnéticas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Explicar cómo se propagan el sonido y la luz</li>
+        </ul>
+      </div>
+
+      <div class="section-block" id="elementos">
+        <div class="section-block__head">
+          <span class="section-block__num mono">01</span>
+          <h2>Elementos de una onda</h2>
+        </div>
+        <div class="section-block__body">
+          <p>Toda onda se describe con unas pocas cantidades: amplitud, longitud de onda, frecuencia y período, relacionadas entre sí.</p>
+          <div class="callout">
+            <span class="mono">v = λ · f</span>
+            <small>Velocidad de propagación: longitud de onda por frecuencia.</small>
+          </div>
+          <p>Estas cantidades determinan cómo se ve y se comporta una onda, sea en el agua, en una cuerda o en el aire.</p>
+        </div>
+      </div>
+
+      <div class="section-block" id="mecanicas">
+        <div class="section-block__head">
+          <span class="section-block__num mono">02</span>
+          <h2>Ondas mecánicas</h2>
+        </div>
+        <div class="section-block__body">
+          <p>Las ondas mecánicas necesitan un medio material para propagarse — no pueden viajar en el vacío, a diferencia de la luz.</p>
+          <div class="callout">
+            <span class="mono">T = 1 / f</span>
+            <small>Período: tiempo que tarda un ciclo completo, inverso de la frecuencia.</small>
+          </div>
+          <p>El sonido es el ejemplo más cotidiano: vibraciones que comprimen y expanden el aire hasta llegar a nuestro oído.</p>
+        </div>
+      </div>
+
+      <div class="section-block" id="sonido-luz">
+        <div class="section-block__head">
+          <span class="section-block__num mono">03</span>
+          <h2>Sonido y luz</h2>
+        </div>
+        <div class="section-block__body">
+          <p>El sonido viaja mucho más lento que la luz, por eso vemos un rayo antes de escuchar el trueno.</p>
+          <div class="callout">
+            <span class="mono">c ≈ 3 × 10⁸ m/s</span>
+            <small>Velocidad de la luz en el vacío.</small>
+          </div>
+          <p>Esta diferencia de velocidades es la que usamos, sin darnos cuenta, para estimar qué tan lejos cayó un rayo.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="toc">
+      <img src="imgs/sir-james-maxwell.png" alt="James Clerk Maxwell" class="toc-sticker">
+      <div class="toc-fact">
+        <strong>¿Sabías qué?</strong>
+        <p>James Clerk Maxwell unificó la electricidad, el magnetismo y la luz en un solo conjunto de ecuaciones, demostrando que la luz misma es una onda electromagnética.</p>
+      </div>
+      <div class="toc-progress">
+        <div class="progress-label"><span>Progreso del tema</span><strong data-progress-label="self">0%</strong></div>
+        <div class="progress"><div class="progress__bar" data-progress-bar="self"></div></div>
+      </div>
+      <div class="toc-label">EN ESTE TEMA</div>
+      <a href="#elementos">Elementos de una onda</a>
+      <a href="#mecanicas">Ondas mecánicas</a>
+      <a href="#sonido-luz">Sonido y luz</a>
+
+      <a class="btn btn--ghost toc__next" href="tema-magnitudes.html">
+        Siguiente: Magnitudes
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </nav>
+  </div>
+
+</main>
+
+<footer class="site-footer">Aprendizaje Interactivo de Física © 2026 · Creado con amor para compartir el conocimiento y facilitar tu aprendizaje.</footer>
+
+<script src="app.js"></script>
+<script>
+  initSectionProgress();
+  initToc();
+  initStudyTimer();
+  initWaveGenerator();
+  initThemeToggle();
+</script>
+</body>
+</html>

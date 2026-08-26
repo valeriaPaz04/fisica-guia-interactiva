@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía Interactiva · Física</title>
+<link rel="icon" href="imgs/logoImg.png" type="image/png">
+<script>
+  (function () {
+    var saved = localStorage.getItem("fisica_theme");
+    if (saved) document.documentElement.setAttribute("data-theme", saved);
+  })();
+</script>
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-header__brand" href="index.html">
+    <span class="site-header__mark"><img src="imgs/logo.gif" alt="Logo" class="site-header__mark-img"></span>
+    <span class="site-header__title">Física <span>· ADSO</span></span>
+  </a>
+  <nav class="site-header__nav">
+    <a href="index.html">Principio</a>
+    <a href="index.html#modulos">Módulos</a>
+    <a href="index.html#avance">Avance</a>
+  </nav>
+  <div class="site-header__actions">
+    <a class="site-header__link" href="instructor.html">Instructores</a>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="page">
+
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>Entiende la <em>física</em>, a tu ritmo.</h1>
+      <p>Las ideas que explican el universo, resumidas en cuatro temas breves con simuladores para jugar con las variables. Avanza cuando quieras: tu progreso queda guardado en este navegador.</p>
+      <div class="hero-source">
+        <img src="imgs/logoSena.png" alt="SENA" class="hero-source__logo">
+        <span>Basado en el material del: <strong style="opacity: 0.8;">Servicio Nacional de Aprendizaje — SENA</strong></span>
+      </div>
+      <a class="btn btn--accent" href="#modulos">Comenzar aprendizaje</a>
+    </div>
+
+    <div class="hero-orbit" aria-hidden="true">
+      <div class="hero-orbit__pos hero-orbit__pos--atom">
+        <div class="hero-orbit__icon hero-orbit__icon--atom">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.50">
+            <ellipse cx="12" cy="12" rx="4.2" ry="10.5"/>
+            <ellipse cx="12" cy="12" rx="4.2" ry="10.5" transform="rotate(60 12 12)"/>
+            <ellipse cx="12" cy="12" rx="4.2" ry="10.5" transform="rotate(120 12 12)"/>
+            <circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/>
+            <circle cx="14.5" cy="3.5" r="1.1" fill="currentColor" stroke="none"/>
+            <circle cx="18.2" cy="18.4" r="1.1" fill="currentColor" stroke="none"/>
+            <circle cx="3.8" cy="13.5" r="1.1" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+      </div>
+      <div class="hero-orbit__pos hero-orbit__pos--mecanica">
+        <div class="hero-orbit__icon hero-orbit__icon--mecanica">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c4-11 14-11 18 0"/><circle cx="12" cy="7.5" r="1.6" fill="currentColor" stroke="none"/></svg>
+        </div>
+      </div>
+      <div class="hero-orbit__pos hero-orbit__pos--energia">
+        <div class="hero-orbit__icon hero-orbit__icon--energia">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
+        </div>
+      </div>
+      <div class="hero-orbit__pos hero-orbit__pos--ondas">
+        <div class="hero-orbit__icon hero-orbit__icon--ondas">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-5 5-5 5 0s2.5 5 5 0 5-5 5 0 2.5 5 5 0"/></svg>
+        </div>
+      </div>
+      <div class="hero-orbit__pos hero-orbit__pos--magnitudes">
+        <div class="hero-orbit__icon hero-orbit__icon--magnitudes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="2"/><path d="M7 8v3M11 8v3M15 8v3"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-banner">
+    <div class="feature-banner__item">
+      <div>
+        <strong>4 temas breves</strong>
+        <span>Mecánica, Energía, Ondas y Magnitudes</span>
+      </div>
+    </div>
+    <div class="feature-banner__item">
+      <div>
+        <strong>Simuladores interactivos</strong>
+        <span>Experimenta lanzamientos, ondas <br>y más en vivo</span>
+      </div>
+    </div>
+    <div class="feature-banner__item">
+      <div>
+        <strong>Repasa y Aprende</strong>
+        <span>Lee, practica un tema y sigue adelante</span>
+      </div>
+    </div>
+    <div class="feature-banner__item">
+      <div>
+        <strong>Reconoce tu avance</strong>
+        <span>Completa los 4 temas y desbloquea tu mención de honor.</span>
+      </div>
+    </div>
+  </section>
+
+  <svg class="wave-divider" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,12 q10,-10 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0"/></svg>
+
+  <h2 class="section-heading" id="modulos">Módulos</h2>
+
+  <div class="topic-grid">
+
+    <a class="topic-card" href="tema-mecanica.html" data-topic="mecanica">
+      <div class="topic-card__top">
+        <span class="topic-card__level">Introductorio</span>
+        <span class="badge">45 min</span>
+      </div>
+      <div class="topic-card__head">
+        <h3>Mecánica</h3>
+        <span class="topic-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18c4-11 14-11 18 0"/><circle cx="12" cy="7.5" r="1.4" fill="currentColor" stroke="none"/></svg>
+        </span>
+      </div>
+      <p>Cómo describimos y predecimos el movimiento de los cuerpos: desde el desplazamiento en línea recta hasta las leyes de Newton.</p>
+      <ul class="topic-card__list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cinemática básica</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Leyes de Newton</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Tiro parabólico</li>
+      </ul>
+      <div class="topic-card__spacer"></div>
+      <div class="progress-label"><span>Progreso del módulo</span><strong data-progress-label="mecanica">0%</strong></div>
+      <div class="progress"><div class="progress__bar" data-progress-bar="mecanica"></div></div>
+      <span class="btn btn--accent">Comenzar
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </a>
+
+    <a class="topic-card" href="tema-energia.html" data-topic="energia">
+      <div class="topic-card__top">
+        <span class="topic-card__level">Introductorio</span>
+        <span class="badge">55 min</span>
+      </div>
+      <div class="topic-card__head">
+        <h3>Energía</h3>
+        <span class="topic-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>
+        </span>
+      </div>
+      <p>Cómo se transforma y se conserva la energía: trabajo, potencia, los principios físicos de una máquina y cómo funciona un sistema térmico cuando hay calor de por medio.</p>
+      <ul class="topic-card__list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Trabajo, potencia y conservación</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Máquinas: principios físicos</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sistemas térmicos y calor</li>
+      </ul>
+      <div class="topic-card__spacer"></div>
+      <div class="progress-label"><span>Progreso del módulo</span><strong data-progress-label="energia">0%</strong></div>
+      <div class="progress"><div class="progress__bar" data-progress-bar="energia"></div></div>
+      <span class="btn btn--accent">Comenzar
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </a>
+
+    <a class="topic-card" href="tema-ondas.html" data-topic="ondas">
+      <div class="topic-card__top">
+        <span class="topic-card__level">Introductorio</span>
+        <span class="badge">35 min</span>
+      </div>
+      <div class="topic-card__head">
+        <h3>Ondas</h3>
+        <span class="topic-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2.5-5 5-5 5 0s2.5 5 5 0 5-5 5 0 2.5 5 5 0"/></svg>
+        </span>
+      </div>
+      <p>Qué es una onda, cómo se propaga y qué la diferencia del sonido y la luz — la base física detrás de casi todo lo que oímos y vemos.</p>
+      <ul class="topic-card__list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Elementos de una onda</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ondas mecánicas</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sonido y luz</li>
+      </ul>
+      <div class="topic-card__spacer"></div>
+      <div class="progress-label"><span>Progreso del módulo</span><strong data-progress-label="ondas">0%</strong></div>
+      <div class="progress"><div class="progress__bar" data-progress-bar="ondas"></div></div>
+      <span class="btn btn--accent">Comenzar
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </a>
+
+    <a class="topic-card" href="tema-magnitudes.html" data-topic="magnitudes">
+      <div class="topic-card__top">
+        <span class="topic-card__level">Introductorio</span>
+        <span class="badge">40 min</span>
+      </div>
+      <div class="topic-card__head">
+        <h3>Magnitudes</h3>
+        <span class="topic-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8v3M11 8v3M15 8v3"/></svg>
+        </span>
+      </div>
+      <p>El lenguaje común de la física: unidades, conversiones y notación científica para medir con precisión y expresar cualquier resultado correctamente.</p>
+      <ul class="topic-card__list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Sistema Internacional</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Conversión de unidades</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Cifras significativas</li>
+      </ul>
+      <div class="topic-card__spacer"></div>
+      <div class="progress-label"><span>Progreso del módulo</span><strong data-progress-label="magnitudes">0%</strong></div>
+      <div class="progress"><div class="progress__bar" data-progress-bar="magnitudes"></div></div>
+      <span class="btn btn--accent">Comenzar
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </a>
+
+  </div>
+
+  <section class="progress-section" id="avance">
+    <h2 class="section-heading">Avance</h2>
+
+    <div class="hero-stat">
+      <div class="hero-stat__top">
+        <span>Completado general</span>
+        <strong data-progress-label="overall">0%</strong>
+      </div>
+      <div class="progress"><div class="progress__bar" data-progress-bar="overall"></div></div>
+
+      <div class="hero-stat__stats">
+        <div class="hero-stat__stat">
+          <strong data-modules-count>0/4</strong>
+          <span>Módulos completados</span>
+        </div>
+        <div class="hero-stat__stat">
+          <strong>10/43</strong>
+          <span>Actividades completadas</span>
+        </div>
+        <div class="hero-stat__stat">
+          <strong data-study-time>0 min</strong>
+          <span>Tiempo de estudio</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-card__info">
+        <span class="cert-card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>
+        </span>
+        <div>
+          <strong>Mención de Honor</strong>
+          <span data-cert-status>Completa los 4 módulos para desbloquearla (0/4)</span>
+        </div>
+      </div>
+      <div class="cert-card__form">
+        <input type="text" data-cert-name maxlength="60" placeholder="Tu nombre completo" autocomplete="name">
+        <button class="btn btn--accent" type="button" data-cert-download disabled>Ver mención de honor</button>
+      </div>
+    </div>
+
+    <button class="reset-progress" type="button" data-reset-progress>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+      Reiniciar progreso
+    </button>
+  </section>
+</main>
+
+<footer class="site-footer">Guía Interactiva de Física © 2026 · Creado con amor para compartir el conocimiento y facilitar tu aprendizaje.</footer>
+
+<script src="app.js"></script>
+<script>renderHomeProgress(); initThemeToggle(); initCertificate(); initResetProgress();</script>
+</body>
+</html>

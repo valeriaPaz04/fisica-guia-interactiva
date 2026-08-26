@@ -1,0 +1,118 @@
+/* ============================================================
+   Módulo de Física · ADSO — TEMA / PALETA DE COLORES
+
+   Este es el ÚNICO archivo que hay que tocar para cambiar los
+   colores de todo el sitio. Cambia un valor hexadecimal aquí y
+   se actualiza en index.html, tema-mecanica.html e instructor.html
+   automáticamente (todo el resto del CSS usa estas variables,
+   nunca colores "quemados").
+
+   Modo oscuro: se activa automáticamente si el sistema operativo del
+   usuario está en oscuro (prefers-color-scheme), y además se puede
+   forzar a mano con el botón del header, que agrega data-theme="dark"
+   o data-theme="light" en <html> (ver .theme-toggle en cada css de
+   página y initThemeToggle() en app.js). La elección manual siempre
+   gana sobre la del sistema.
+   ============================================================ */
+
+:root {
+  /* espectro por tema: de azul (Mecánica) a violeta (Magnitudes) */
+  --mecanica: #1E3A8A;
+  --mecanica-soft: #E7EBF6;
+  --energia: #3139AA;
+  --energia-soft: #E8E8F5;
+  --ondas: #4338CA;
+  --ondas-soft: #EAE8F8;
+  --magnitudes: #6020B9;
+  --magnitudes-soft: #EFE5F7;
+
+  /* color de marca / acento por defecto */
+  --module-accent: #1E3A8A;
+  --module-accent-dark: #14235C;
+
+  /* texto */
+  --ink: #1A1A33;
+  --ink-soft: #4B4B57;
+  --ink-faint: #76767D;
+
+  /* fondos y bordes */
+  --bg: #F6F6FA;
+  --surface: #FFFFFF;
+  --border: #E4E3E9;
+  --border-strong: #C9C7D2;
+
+  /* estados */
+  --success: #0F8F63;
+  --success-soft: #E3F5EE;
+  --danger: #D64545;
+
+  /* acento activo (por defecto = module-accent; cada tema lo sobreescribe abajo) */
+  --accent: var(--module-accent);
+  --accent-soft: var(--mecanica-soft);
+}
+
+/* acento por tema: se fija con data-topic en <body> o en cada tarjeta */
+[data-topic="mecanica"]   { --accent: var(--mecanica);   --accent-soft: var(--mecanica-soft); }
+[data-topic="energia"]    { --accent: var(--energia);    --accent-soft: var(--energia-soft); }
+[data-topic="ondas"]      { --accent: var(--ondas);      --accent-soft: var(--ondas-soft); }
+[data-topic="magnitudes"] { --accent: var(--magnitudes); --accent-soft: var(--magnitudes-soft); }
+
+/* ---------------- modo oscuro ---------------- */
+
+/* sigue al sistema operativo, salvo que el usuario haya elegido "light" a mano */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --mecanica: #6E8FEC;
+    --mecanica-soft: #1E2740;
+    --energia: #7A80EE;
+    --energia-soft: #232752;
+    --ondas: #8F7FF5;
+    --ondas-soft: #29234F;
+    --magnitudes: #B073EE;
+    --magnitudes-soft: #2E1F44;
+
+    --module-accent: #6E8FEC;
+    --module-accent-dark: #8FA8F2;
+
+    --ink: #F0F0F6;
+    --ink-soft: #B8B8C8;
+    --ink-faint: #85859A;
+
+    --bg: #121218;
+    --surface: #1C1C27;
+    --border: #2C2C3A;
+    --border-strong: #3D3D4F;
+
+    --success: #3EDDA0;
+    --success-soft: #113328;
+    --danger: #F17272;
+  }
+}
+
+/* el usuario eligió "dark" a mano — gana sin importar el sistema */
+:root[data-theme="dark"] {
+  --mecanica: #6E8FEC;
+  --mecanica-soft: #1E2740;
+  --energia: #7A80EE;
+  --energia-soft: #232752;
+  --ondas: #8F7FF5;
+  --ondas-soft: #29234F;
+  --magnitudes: #B073EE;
+  --magnitudes-soft: #2E1F44;
+
+  --module-accent: #6E8FEC;
+  --module-accent-dark: #8FA8F2;
+
+  --ink: #F0F0F6;
+  --ink-soft: #B8B8C8;
+  --ink-faint: #85859A;
+
+  --bg: #121218;
+  --surface: #1C1C27;
+  --border: #2C2C3A;
+  --border-strong: #3D3D4F;
+
+  --success: #3EDDA0;
+  --success-soft: #113328;
+  --danger: #F17272;
+}
