@@ -41,7 +41,7 @@ function initResetProgress() {
 
   btn.addEventListener("click", () => {
     const confirmed = confirm(
-      "¿Seguro que quieres reiniciar tu progreso?\n\nEsta acción es irreversible: se borrará el avance de los 4 módulos y tu tiempo de estudio acumulado."
+      "¿Seguro que quieres reiniciar tu progreso?\n\nEsta acción es irreversible: se borrará el avance de los 4 módulos, tu tiempo de estudio acumulado y tu nombre guardado."
     );
     if (!confirmed) return;
 
@@ -50,6 +50,7 @@ function initResetProgress() {
       localStorage.removeItem(SEEN_SECTIONS_PREFIX + topic);
     });
     localStorage.removeItem(STUDY_TIME_KEY);
+    localStorage.removeItem(NAME_KEY);
     location.reload();
   });
 }
@@ -282,45 +283,163 @@ function isValidName(name) {
   return trimmed.length >= 3 && NAME_PATTERN.test(trimmed);
 }
 
+/* ---------- Modal de bienvenida: pide el nombre una sola vez, no editable después ---------- */
+
+function showNamePrompt() {
+  const overlay = document.createElement("div");
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute("aria-label", "Ingresa tu nombre");
+  overlay.style.cssText =
+    "position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;background:color-mix(in srgb, var(--ink) 45%, transparent);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);";
+
+  const card = document.createElement("div");
+  card.style.cssText =
+    "background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px 28px;max-width:360px;width:100%;text-align:center;font-family:var(--font-body),sans-serif;box-shadow:0 24px 48px -20px rgba(0,0,0,.35);";
+
+  const title = document.createElement("h2");
+  title.textContent = "¡Bienvenido a la guía!";
+  title.style.cssText =
+    "font-family:var(--font-display),sans-serif;font-weight:700;font-size:19px;margin:0 0 8px;color:var(--ink);";
+
+  const desc = document.createElement("p");
+  desc.textContent =
+    "Cuéntanos tu nombre completo: quedará listo para tu insignia digital cuando termines los módulos. No podrás cambiarlo después.";
+  desc.style.cssText = "font-size:13.5px;color:var(--ink-soft);margin:0 0 20px;line-height:1.5;";
+
+  const input = document.createElement("input");
+  input.type = "text";
+  input.placeholder = "Tu nombre completo";
+  input.autocomplete = "name";
+  input.maxLength = 60;
+  input.style.cssText =
+    "font-family:inherit;font-size:14px;padding:10px 14px;border-radius:8px;border:1px solid var(--border-strong);background:var(--bg);color:var(--ink);width:100%;box-sizing:border-box;margin-bottom:6px;";
+
+  const error = document.createElement("small");
+  error.style.cssText = "display:block;min-height:16px;color:var(--danger);font-size:12px;margin-bottom:14px;";
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.textContent = "Comenzar";
+  btn.style.cssText =
+    "font-family:inherit;font-weight:600;font-size:14px;border:none;border-radius:8px;padding:12px 20px;cursor:pointer;background:var(--module-accent);color:#fff;width:100%;";
+
+  input.addEventListener("input", () => {
+    input.value = input.value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿÑñ\s]/g, "");
+    error.textContent = "";
+  });
+
+  function submit() {
+    if (!isValidName(input.value)) {
+      error.textContent = "Ingresa tu nombre completo (mínimo 3 letras).";
+      input.focus();
+      return;
+    }
+    setStudentName(input.value.trim());
+    overlay.remove();
+  }
+
+  btn.addEventListener("click", submit);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") submit();
+  });
+
+  card.append(title, desc, input, error, btn);
+  overlay.appendChild(card);
+  document.body.appendChild(overlay);
+  input.focus();
+}
+
+function initNameGate() {
+  if (getStudentName()) return;
+  showNamePrompt();
+}
+
+document.addEventListener("DOMContentLoaded", initNameGate);
+
 function initCertificate() {
-  const nameInput = document.querySelector("[data-cert-name]");
+  const namePreview = document.querySelector("[data-cert-name-preview]");
   const status = document.querySelector("[data-cert-status]");
   const downloadBtn = document.querySelector("[data-cert-download]");
-  if (!nameInput || !downloadBtn) return;
+  if (!downloadBtn) return;
 
-  nameInput.value = getStudentName();
+  const name = getStudentName();
+  const nameReady = isValidName(name);
+
+  if (namePreview) namePreview.textContent = nameReady ? name.trim() : "Tu insignia";
 
   function refresh() {
     const done = TOPICS.filter((t) => getProgress(t) >= 100).length;
     const modulesReady = done >= TOPICS.length;
-    const nameReady = isValidName(nameInput.value);
-    const unlocked = modulesReady && nameReady;
+    // TEMP (dev): gating deshabilitado para poder ver la insignia mientras se desarrolla.
+    // Restaurar antes de publicar: const unlocked = modulesReady && nameReady;
+    const unlocked = true;
 
     downloadBtn.disabled = !unlocked;
 
     if (status) {
-      if (!modulesReady) {
+      if (!nameReady) {
+        status.textContent = "Aún no tienes un nombre guardado";
+      } else if (!modulesReady) {
         status.textContent = `Completa los ${TOPICS.length} módulos para desbloquearla (${done}/${TOPICS.length})`;
-      } else if (!nameReady) {
-        status.textContent = "Ingresa tu nombre completo para desbloquearla";
       } else {
         status.textContent = "¡Lista para descargar!";
       }
     }
   }
 
-  nameInput.addEventListener("input", () => {
-    nameInput.value = nameInput.value.replace(/[^A-Za-zÀ-ÖØ-öø-ÿÑñ\s]/g, "");
-    setStudentName(nameInput.value);
-    refresh();
-  });
-
   downloadBtn.addEventListener("click", () => {
     if (downloadBtn.disabled) return;
-    window.location.href = "certificado.html";
+    openInsigniaModal();
   });
 
   refresh();
+}
+
+/* ---------- Insignia digital en modal (en vez de navegar a certificado.html) ---------- */
+
+function openInsigniaModal() {
+  const overlay = document.createElement("div");
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute("aria-label", "Insignia digital");
+  overlay.style.cssText =
+    "position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;background:color-mix(in srgb, var(--ink) 45%, transparent);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);";
+
+  const panel = document.createElement("div");
+  panel.style.cssText =
+    "position:relative;background:var(--surface);border-radius:20px;max-width:720px;width:100%;max-height:90vh;box-shadow:0 24px 48px -20px rgba(0,0,0,.35);overflow:hidden;";
+
+  const closeBtn = document.createElement("button");
+  closeBtn.type = "button";
+  closeBtn.setAttribute("aria-label", "Cerrar");
+  closeBtn.innerHTML = "&times;";
+  closeBtn.style.cssText =
+    "position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:1px solid var(--border-strong);background:var(--surface);color:var(--ink);font-size:20px;line-height:1;cursor:pointer;z-index:1;";
+
+  const iframe = document.createElement("iframe");
+  iframe.src = "certificado.html?modal=1";
+  iframe.title = "Insignia digital";
+  iframe.style.cssText = "display:block;width:100%;height:78vh;border:none;";
+
+  function close() {
+    overlay.remove();
+    document.removeEventListener("keydown", onKeydown);
+  }
+
+  function onKeydown(e) {
+    if (e.key === "Escape") close();
+  }
+
+  closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener("keydown", onKeydown);
+
+  panel.append(closeBtn, iframe);
+  overlay.appendChild(panel);
+  document.body.appendChild(overlay);
 }
 
 /* ---------- Página certificado.html: pinta y permite imprimir la mención ---------- */
@@ -332,7 +451,9 @@ function initCertificatePage() {
 
   const done = TOPICS.filter((t) => getProgress(t) >= 100).length;
   const name = getStudentName();
-  const unlocked = done >= TOPICS.length && isValidName(name);
+  // TEMP (dev): gating deshabilitado para poder ver la insignia mientras se desarrolla.
+  // Restaurar antes de publicar: const unlocked = done >= TOPICS.length && isValidName(name);
+  const unlocked = true;
 
   if (!unlocked) {
     if (locked) locked.hidden = false;
@@ -379,6 +500,87 @@ function renderHomeProgress() {
 
   const studyTime = document.querySelector("[data-study-time]");
   if (studyTime) studyTime.textContent = formatStudyTime(getStudyTime());
+}
+
+/* ---------------- Avance: desglose por módulo y sus secciones ---------------- */
+
+const TOPIC_META = {
+  mecanica: {
+    name: "Mecánica",
+    href: "tema-mecanica.html",
+    icon: '<path d="M3 18c4-11 14-11 18 0"/><circle cx="12" cy="7.5" r="1.4" fill="currentColor" stroke="none"/>',
+    sections: [
+      { id: "cinematica", label: "Cinemática básica" },
+      { id: "newton", label: "Leyes de Newton" },
+      { id: "simulador", label: "Simulador" },
+    ],
+  },
+  energia: {
+    name: "Energía",
+    href: "tema-energia.html",
+    icon: '<path d="M13 2 4 14h6l-1 8 9-12h-6z"/>',
+    sections: [
+      { id: "trabajo", label: "Trabajo y potencia" },
+      { id: "maquinas", label: "Máquinas" },
+      { id: "calor", label: "Sistemas térmicos" },
+    ],
+  },
+  ondas: {
+    name: "Ondas",
+    href: "tema-ondas.html",
+    icon: '<path d="M2 12c2.5-5 5-5 5 0s2.5 5 5 0 5-5 5 0 2.5 5 5 0"/>',
+    sections: [
+      { id: "elementos", label: "Elementos de una onda" },
+      { id: "mecanicas", label: "Ondas mecánicas" },
+      { id: "sonido-luz", label: "Sonido y luz" },
+    ],
+  },
+  magnitudes: {
+    name: "Magnitudes",
+    href: "tema-magnitudes.html",
+    icon: '<rect x="3" y="8" width="18" height="8" rx="1.5"/><path d="M7 8v3M11 8v3M15 8v3"/>',
+    sections: [
+      { id: "sistema-internacional", label: "Sistema Internacional" },
+      { id: "conversion", label: "Conversión de unidades" },
+      { id: "cifras", label: "Cifras significativas" },
+    ],
+  },
+};
+
+const CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+const PENDING_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg>';
+
+function renderModuleBreakdown() {
+  const container = document.querySelector("[data-module-breakdown]");
+  if (!container) return;
+
+  container.innerHTML = TOPICS.map((topic) => {
+    const meta = TOPIC_META[topic];
+    const pct = getProgress(topic);
+    const seen = new Set(getSeenSections(topic));
+
+    const items = meta.sections
+      .map((section) => {
+        const done = seen.has(section.id);
+        return `<li class="${done ? "is-done" : ""}">
+          <span>${done ? CHECK_SVG : PENDING_SVG} ${section.label}</span>
+          <span class="module-card__status">${done ? "Completado" : "Pendiente"}</span>
+        </li>`;
+      })
+      .join("");
+
+    return `<a class="module-card" href="${meta.href}" data-topic="${topic}" style="text-decoration:none;color:inherit;display:block">
+      <div class="module-card__top">
+        <div class="module-card__head">
+          <span class="module-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${meta.icon}</svg></span>
+          <strong class="module-card__name">${meta.name}</strong>
+        </div>
+        <span class="module-card__pct">${pct}%</span>
+      </div>
+      <div class="progress"><div class="progress__bar" style="width:${pct}%"></div></div>
+      <ul class="module-card__list">${items}</ul>
+    </a>`;
+  }).join("");
 }
 
 /* ---------- Tema: progreso automático por secciones vistas al hacer scroll ---------- */

@@ -17,15 +17,17 @@
 <body data-topic="mecanica">
 
 <header class="site-header">
-  <a class="site-header__brand" href="index.html">
-    <span class="site-header__mark"><img src="imgs/logo.gif" alt="Logo" class="site-header__mark-img"></span>
-    <span class="site-header__title">Física <span>· ADSO</span></span>
-  </a>
-  <svg class="wave-divider" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,12 q10,-10 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0"/></svg>
-  <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
-    <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
-    <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="index.html">
+      <span class="site-header__mark"><img src="imgs/logo.gif" alt="Logo" class="site-header__mark-img"></span>
+      <span class="site-header__title">Física</span>
+    </a>
+    <svg class="wave-divider" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0,12 q10,-10 20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0 t20,0"/></svg>
+    <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
 </header>
 
 <div class="pulley" aria-hidden="true">
@@ -50,7 +52,7 @@
 <main class="page">
 
   <nav class="breadcrumb">
-    <a href="index.html">Módulo de Física</a>
+    <a href="modulos.html">Módulo de Física</a>
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
     <strong>Mecánica</strong>
   </nav>
@@ -67,20 +69,20 @@
       </span>
     </div>
     <p style="max-width:640px">Movimiento, fuerzas y las leyes que describen cómo se desplazan los cuerpos — de la cinemática básica al tiro parabólico.</p>
+
+    <div class="topic-hero__learn">
+      <h4>Lo que aprenderás</h4>
+      <ul class="check-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Describir la posición y velocidad de un cuerpo en movimiento</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Aplicar las leyes de Newton a casos simples</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Calcular alcance, altura máxima y tiempo de vuelo de un proyectil</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Experimentar con el simulador de tiro parabólico</li>
+      </ul>
+    </div>
   </section>
 
   <div class="topic-layout">
     <div>
-
-      <div class="learn-box">
-        <h4>Lo que aprenderás</h4>
-        <ul class="check-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Describir la posición y velocidad de un cuerpo en movimiento</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Aplicar las leyes de Newton a casos simples</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Calcular alcance, altura máxima y tiempo de vuelo de un proyectil</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Experimentar con el simulador de tiro parabólico</li>
-        </ul>
-      </div>
 
       <div class="section-block" id="cinematica">
         <div class="section-block__head">
@@ -152,29 +154,58 @@
 
     <nav class="toc">
       <img src="imgs/sir-isaac-newton.png" alt="Isaac Newton" class="toc-sticker">
-      <div class="toc-fact">
-        <strong>¿Sabías qué?</strong>
-        <p>La leyenda cuenta que una manzana al caer inspiró a Newton a formular la ley de la gravitación universal, la misma que hoy explica por qué los cuerpos caen con aceleración constante.</p>
-      </div>
       <div class="toc-progress">
         <div class="progress-label"><span>Progreso del tema</span><strong data-progress-label="self">0%</strong></div>
         <div class="progress"><div class="progress__bar" data-progress-bar="self"></div></div>
       </div>
-      <div class="toc-label">EN ESTE TEMA</div>
-      <a href="#cinematica">Cinemática básica</a>
-      <a href="#newton">Leyes de Newton</a>
-      <a href="#simulador">Simulador</a>
 
-      <a class="btn btn--ghost toc__next" href="tema-energia.html">
+      <a class="btn btn--accent toc__next" href="tema-energia.html">
         Siguiente: Energía
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
+
+      <div class="toc-label">EN ESTE TEMA</div>
+      <a href="#cinematica"><span class="toc-num">1</span>Cinemática básica</a>
+      <a href="#newton"><span class="toc-num">2</span>Leyes de Newton</a>
+      <a href="#simulador"><span class="toc-num">3</span>Simulador</a>
+
+      <div class="toc-fact">
+        <strong>¿Sabías qué?</strong>
+        <p>La leyenda cuenta que una manzana al caer inspiró a Newton a formular la ley de la gravitación universal, la misma que hoy explica por qué los cuerpos caen con aceleración constante.</p>
+      </div>
     </nav>
   </div>
 
 </main>
 
-<footer class="site-footer">Guía Interactiva de Física © 2026 · Creado con amor para compartir el conocimiento y facilitar tu aprendizaje.</footer>
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <div class="site-footer__brand">
+        <img src="imgs/logoSena.png" alt="SENA">
+        <span>SERVICIO NACIONAL DE APRENDIZAJE SENA</span>
+      </div>
+      <p>Guía interactiva basada en el material del Servicio Nacional de Aprendizaje — SENA.</p>
+      <p class="site-footer__label">Sede principal</p>
+      <p>Dirección: Calle 57 No. 8 - 69 Bogotá D.C. (Cundinamarca), Colombia</p>
+      <p class="site-footer__mono">Creado con amor para compartir el conocimiento y facilitar tu aprendizaje.</p>
+    </div>
+    <div class="site-footer__col">
+      <strong class="site-footer__heading">Navegación</strong>
+      <a href="index.html">Inicio</a>
+      <a href="modulos.html">Módulos</a>
+      <a href="avance.html">Avance</a>
+    </div>
+    <div class="site-footer__col">
+      <strong class="site-footer__heading">Créditos</strong>
+      <p>Construido por el sector ADSO · SENNOVA CESGE-2026</p>
+      <p>Documentación y prototipo: Valeria Paz Arana</p>
+    </div>
+    <div class="site-footer__logo">
+      <img src="imgs/logoImg.png" alt="Logo">
+    </div>
+  </div>
+</footer>
 
 <script src="app.js"></script>
 <script>

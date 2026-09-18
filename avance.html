@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avance · Guía Interactiva de Física</title>
+<link rel="icon" href="imgs/logoImg.png" type="image/png">
+<script>
+  (function () {
+    var saved = localStorage.getItem("fisica_theme");
+    if (saved) document.documentElement.setAttribute("data-theme", saved);
+  })();
+</script>
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="site-header__brand" href="index.html">
+      <span class="site-header__mark"><img src="imgs/logo.gif" alt="Logo" class="site-header__mark-img"></span>
+      <span class="site-header__title">Física</span>
+    </a>
+    <nav class="site-header__nav">
+      <a href="index.html">Principio</a>
+      <a href="modulos.html">Módulos</a>
+      <a href="avance.html" class="is-active">Avance</a>
+    </nav>
+    <div class="site-header__actions">
+      <a class="site-header__link" href="instructor.html">Instructores</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Cambiar entre modo claro y oscuro">
+        <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  <div class="page-heading">
+    <div>
+      <h1>Tu avance</h1>
+      <p>El detalle de lo que has completado en cada módulo, guardado automáticamente en este navegador.</p>
+    </div>
+  </div>
+
+  <div class="avance-summary">
+    <div class="avance-summary__main">
+      <div class="hero-stat__top">
+        <span>Completado general</span>
+        <strong data-progress-label="overall">0%</strong>
+      </div>
+      <div class="progress"><div class="progress__bar" data-progress-bar="overall"></div></div>
+
+      <div class="hero-stat__stats">
+        <div class="hero-stat__stat">
+          <strong data-modules-count>0/4</strong>
+          <span>Módulos completados</span>
+        </div>
+        <div class="hero-stat__stat">
+          <strong>10/43</strong>
+          <span>Actividades completadas</span>
+        </div>
+        <div class="hero-stat__stat">
+          <strong data-study-time>0 min</strong>
+          <span>Tiempo de estudio</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="avance-summary__side">
+      <div class="badge-row">
+        <div class="badge-preview">
+          <div class="badge-preview__medal">
+            <div class="badge-preview__ring"></div>
+            <div class="badge-preview__hex">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.5 13.5 7 22l5-3 5 3-1.5-8.5"/></svg>
+            </div>
+          </div>
+          <strong class="badge-preview__name" data-cert-name-preview>—</strong>
+        </div>
+        <span class="badge-row__status" data-cert-status>Completa los 4 módulos para desbloquearla (0/4)</span>
+      </div>
+      <div class="cert-card__form">
+        <button class="btn btn--accent" type="button" data-cert-download disabled>Ver insignia digital</button>
+      </div>
+      <button class="reset-progress" type="button" data-reset-progress>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        Reiniciar progreso y nombre
+      </button>
+    </div>
+  </div>
+
+  <div class="module-grid" data-module-breakdown></div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div>
+      <div class="site-footer__brand">
+        <img src="imgs/logoSena.png" alt="SENA">
+        <span>SERVICIO NACIONAL DE APRENDIZAJE SENA</span>
+      </div>
+      <p>Guía interactiva basada en el material del Servicio Nacional de Aprendizaje — SENA.</p>
+      <p class="site-footer__label">Sede principal</p>
+      <p>Dirección: Calle 57 No. 8 - 69 Bogotá D.C. (Cundinamarca), Colombia</p>
+      <p class="site-footer__mono">Creado con amor para compartir el conocimiento y facilitar tu aprendizaje.</p>
+    </div>
+    <div class="site-footer__col">
+      <strong class="site-footer__heading">Navegación</strong>
+      <a href="index.html">Inicio</a>
+      <a href="modulos.html">Módulos</a>
+      <a href="avance.html">Avance</a>
+    </div>
+    <div class="site-footer__col">
+      <strong class="site-footer__heading">Créditos</strong>
+      <p>Construido por el sector ADSO · SENNOVA CESGE-2026</p>
+      <p>Documentación y prototipo: Valeria Paz Arana</p>
+    </div>
+    <div class="site-footer__logo">
+      <img src="imgs/logoImg.png" alt="Logo">
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>renderHomeProgress(); renderModuleBreakdown(); initThemeToggle(); initCertificate(); initResetProgress();</script>
+</body>
+</html>
